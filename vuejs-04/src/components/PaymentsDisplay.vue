@@ -1,7 +1,13 @@
 <template>
-    <div class="payment-list">
-        <!-- <div>Total sum:: {{getFPV}}</div> -->
-        <div :class="[$style.list]">
+<div class="payments-list">
+    <!--<div class="list">
+        <div class="item" 
+            v-for="(item, idx) in items" 
+            :key="idx">
+            {{ idx + 1 }} - {{ item }}
+        </div>
+    </div>-->
+    <div :class="[$style.list]">
             <table>
                 <thead>
                     <td>#</td>
@@ -10,8 +16,8 @@
                     <td>Date</td>
                 </thead>
                 <tr v-for="(item, idx) in items" :key="idx">
-                    <td>{{idx+firstItemNum+1}}</td>
-                    <td>{{item.category}}</td>
+                    <td>{{item.id}}</td>
+                    <td>{{categoryList[item.categoryid]}}</td>
                     <td>{{item.value}}</td>
                     <td>{{item.date}}</td>
                     <!-- <div  class="item" 
@@ -23,35 +29,31 @@
             </table>
             
         </div>
-    </div>
+</div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
 export default {
-    name:"PaymentsDisplay",
-    
-    props:{
-        items:{
+    name: "PaymentsDisplay",
+    props: {
+        items: {
             type: Array,
-            // default: ()=>[],
-            required: true
-        },
-        firstItemNum:{
-            type: Number,
-            required: true
+            default: ()=>[],
         }
     },
     computed:{
-        // ...mapGetters([
-        //     'getFullPaymentValue'
-        // ]),
-        // getFPV(){
-        //     return this.getFullPaymentValue
-        // }
+        categoryList(){
+            return this.$store.getters.getCategoryList
+        }
+    },
+    methods:{
+        getCategoryName(idx){
+            return this.$store.getters.getCategoryName(idx);
+        }
     }
 }
 </script>
+
 
 <style module>
     .list{

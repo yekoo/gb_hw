@@ -2,7 +2,8 @@
   <div>
       <div :class="[$style.pagesBtns]">
           <div 
-            :class="[$style.pageItem, currentPage==idx?$style.currentPage:'']"
+            :class="[$style.pageItem , 
+            currentPage==idx?$style.currentPage:'']"
             v-for="(itm, idx) in countedPages" 
             :key="idx"
             @click="pageClick(idx)"
@@ -14,20 +15,16 @@
 <script>
 export default {
     name: "PaymentsListPages",
-    data(){
-        return{
-            currentPage:0,
-        }
-    },
+    
     props:{
-        items:{
-            type: Array,
-            default: ()=>[],
+        itemsTotal:{
+            type: Number,
+            default: 1,
             required: true
         },
-        pagesNum:{
+        currentPage:{
             type:Number,
-            default: 1,
+            default: 0,
             required: true,
         },
         itemsPerPage:{
@@ -38,13 +35,13 @@ export default {
     },
     computed:{
         countedPages(){
-            const allPagesNum = Math.ceil(this.items.length/this.itemsPerPage);
+            const allPagesNum = Math.ceil(this.itemsTotal / this.itemsPerPage);
             return new Array(allPagesNum);
         }
     },
     methods:{
         pageClick(num){
-            this.currentPage = num;
+            // this.currentPage = num;
             this.$emit("onSwitch", num);
         },
     },
@@ -70,5 +67,6 @@ export default {
     .currentPage{
         background: #bbb;
         border: 1px solid #bbb;
+        pointer-events: none;
     }
 </style>
