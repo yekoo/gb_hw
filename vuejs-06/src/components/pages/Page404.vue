@@ -1,0 +1,15 @@
+<template>
+  <div>
+    Page not found [404]
+  </div>
+</template>
+
+<script>
+export default {
+    name: "Page404"
+}
+</script>
+
+<style>
+
+</style>
