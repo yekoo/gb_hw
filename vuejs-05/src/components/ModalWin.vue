@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper hiddenn">
+  <div class="wrapper hidden">
       <h3 class="header">{{settings.header}}</h3>
       <div class="content">
           <!-- <AddPaymentForm v-if="settings.compName==='add'"/> -->
@@ -7,6 +7,7 @@
           <component 
             :is="settings.compName" 
             :categoryList="this.$store.getters.getCategoryList"
+            :value="settings.value"
             @addNewPayment="onAddNewPayment"
           />
       </div>
@@ -51,5 +52,6 @@ export default {
         top: 0;
         // margin: 0 auto;
         padding: 12px;
+        box-shadow: 2px 2px 15px rgba(0,0,0,.4);
     }
 </style>

@@ -45,7 +45,7 @@ export default {
   },
   data(){
     return {
-      showAddPaymentModal: true,
+      // showAddPaymentModal: true,
       modalWindowName:"",
       settings:{
         // header:"Add payment",
@@ -60,15 +60,15 @@ export default {
     goToPage(pageName){
       this.$router.push({
         name: pageName,
-        params:{
-          id:"456"
-        }
+        params: this.$router.params
+        
       })
     },
     onShow(settings){
+      console.log(">>>>>>>>>>>>",this.$route);
       console.log("onShow(settings)", settings);
-      this.modalWindowName = settings.settings.compName;
       this.settings = settings.settings;
+      this.modalWindowName = settings.settings.compName;
     },
     onHide(){
       console.log("onHide()");

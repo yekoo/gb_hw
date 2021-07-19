@@ -3,7 +3,6 @@
       [ Dashboard ]
       <!-- <AddPaymentForm @addNewPayment="addNewPaymentData" :category-list="categoryList"/> -->
       <button @click="showPaymentsForm">Add Payment</button>
-      <!-- <ModalWindow  v-if="showAddPaymentModal" @close="showAddPaymentModal=false" :settings="settings"/> -->
       <PaymentsDisplay :items="getPageElements"/>
       <PaymentsListPages 
         :currentPage="curPage" 
@@ -13,10 +12,10 @@
 
       <br/>
 
-          <!-- <ModalWindow  v-if="showAddPaymentModal" @close="showAddPaymentModal=!showAddPaymentModal" :settings="settings"/> -->
           <div>Total Sum  =  {{getFPV}} </div>
   </div>
 </template>
+
 
 <script>
 //  mapActions
@@ -61,9 +60,6 @@ export default {
       this.curPage = num;
       console.log("SWITCHING PAGE "+num);
     },
-    // setPage(){
-    //   this.pagename = location.hash.slice(1);
-    // }
     showPaymentsForm(){
       console.log("showPaymentsForm");
       this.$modal.show('add', {header:"Add new cost", compName:"AddPaymentForm", categoryList:this.categoryList});
@@ -91,6 +87,7 @@ export default {
     console.log("CREATED====== ANG DO TO PAGE: ",this.$route);
     const currentListPage = this.$route.params.page-1 || 0;
     console.log("page "+currentListPage);
+    console.log(this.$router);
     this.$router.push({
       name:`dashboard`
     });
@@ -107,7 +104,20 @@ export default {
   mounted(){
     // this.$modal.show("name","settings");
     // this.$modal.hide();
-    this.page = +this.$route.params.page || 1
+    console.log("~~~ routed params", this.$route);
+    console.log("~~~ ", this.$route.params, this.$route.query);
+    this.page = +this.$route.params.page || 1;
+    if(this.$route.params.payment){
+      console.log("=== show modal with params!");
+      this.$modal.show('add', {
+        header:"Add new cost", 
+        compName:"AddPaymentForm", 
+        categoryList:this.categoryList,
+
+        category: this.$route.params.payment,
+        value:this.$route.query["value"]
+        });
+    }
   }
 }
 

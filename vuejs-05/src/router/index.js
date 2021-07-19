@@ -22,8 +22,14 @@ const router = new Router({
             component: ()=>import(/* webpackChunkName: "Dashboard" */ '../components/pages/Dashboard.vue')
         },
         {
+            path:'/dashboard/:page',
+            name:'dashboardPage',
+            // component: Dashboard
+            component: ()=>import(/* webpackChunkName: "Dashboard" */ '../components/pages/Dashboard.vue')
+        },
+        {
             // path:'/add/payment/Food?value=200',
-            path:'/add/payment/:paying',
+            path:'/add/payment/:payment',
             name:"addPayment",
             // component: Dashboard
             // component: ()=>import(/* webpackChunkName: "dashboard" */ '../components/pages/Dashboard.vue')
