@@ -1,24 +1,24 @@
 import './App.css';
 import {useState, useEffect, state} from 'react'
+import {Message} from './Message';
 
 export const App = (props) =>{
-  
   const [messages, setMessage] = useState([
   ]);
   const [value, setValue] = useState("");
 
   const addNewMessage = (e)=>{
-    setMessage((state)=>[...state, {message:value, author:"Mike"}] )
+    setMessage((allMessages)=>[...allMessages, {message:value, author:"Mike"}] )
     setValue("");
   }
 
   useEffect(()=>{
     if(messages.length && messages[messages.length-1]?.author !=="CPU"){
       setTimeout(()=>{
-        setMessage((state)=>[...state, {message:"Ok, and what?", author:"CPU"}] )},
+        setMessage((allMessages)=>[...allMessages, {message:"Ok, and what?", author:"CPU"}] )},
         Math.random()*1500);
       }
-  }, [messages]);
+    }, [messages]);
 
   useEffect(()=>{
     console.log("page opened!");
@@ -30,7 +30,7 @@ export const App = (props) =>{
 
         <ul className="chatList">
           {messages.map(
-            (msg, idx) => {return (<li key={idx}>{msg.author}: {msg.message}</li>)}
+            (msg, idx) => {return (<Message text={msg.message} author={msg.author}key={idx}/>)}
           )}
         </ul>
 
