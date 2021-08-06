@@ -1,0 +1,12 @@
+.currentChat{
+    text-align: left;
+    width: 100%;
+    /* max-height: 100vh; */
+    height: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+}
+.chatForm{
+    background: #ddd;
+    padding: 12px;
+}
