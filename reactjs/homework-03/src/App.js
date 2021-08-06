@@ -10,12 +10,7 @@ export const App = (props) =>{
     <div className="App" >
       <header className="App-header">
         <div className="appColumns">
-          <ChatList chats={[
-            {name:"City", id:0},
-            {name:"Family", id:1},
-            {name:"Schooll", id:2},
-            {name:"GeekBrains", id:3},
-          ]}/>
+          <ChatList/>
           <MessageList/>
         </div>
       </header>

@@ -25,17 +25,16 @@ export const MessageList = ()=>{
     }
   
     useEffect(()=>{
-      if(messages.length && messages[messages.length-1]?.author !=="CPU"){
-        setTimeout(()=>{
-          setMessage((allMessages)=>[...allMessages, {message:"Ok, and what?", author:"CPU"}]);
-          inpField.current.focus();
-          listBottom.current.scrollIntoView({behaviour:"smooth"})
-        },
-          Math.random()*1000+1000);
+        if(messages.length && messages[messages.length-1]?.author !=="CPU"){
+            setTimeout(()=>{
+                setMessage((allMessages)=>[...allMessages, {message:"Ok, and what?", author:"CPU"}]);
+                inpField.current.focus();
+                }, Math.random()*1000+1000);
         }
         listBottom.current.scrollIntoView({behaviour:"smooth"})
         
-      }, [messages, '']);
+        
+      }, [messages]);
   
     useEffect(()=>{
       inpField.current.focus();
