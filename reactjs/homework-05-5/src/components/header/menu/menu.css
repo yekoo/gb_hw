@@ -1,0 +1,21 @@
+.menu {
+    display: flex;
+    /* color: black; */
+    width: 100%;
+    justify-content: center;
+    background: #ccc;
+}
+
+.menu li:hover {
+    background:#ddd;
+}
+.menu li {
+    padding: 8px 20px;
+    cursor: pointer;
+    display:block;
+  }
+  
+.menu a {
+    text-decoration: none;
+    color: #fff;
+  }
