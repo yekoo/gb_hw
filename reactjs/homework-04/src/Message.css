@@ -1,0 +1,7 @@
+.message{
+    padding: 8px  4px;
+    box-sizing: border-box;
+}
+.messageAuthor{
+    font-style: italic;
+}
