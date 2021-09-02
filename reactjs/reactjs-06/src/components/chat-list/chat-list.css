@@ -1,0 +1,31 @@
+.chatsList{
+    display: flex;
+    flex-direction: column;
+    max-width:150px;
+    border-right: 2px solid red;
+    height: 100%;
+    justify-content: space-between;
+}
+.chatsListItem{
+    display:flex;
+}
+
+.chatListPanel{
+    display: flex;
+    flex-direction: column;
+}
+.deleteButton:hover{
+    background: maroon;
+}
+.deleteButton{
+    background:red;
+    border-radius: 12px;
+    width:24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-sizing:border-box;
+    cursor: pointer;
+}
