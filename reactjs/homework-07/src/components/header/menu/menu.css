@@ -1,0 +1,22 @@
+.menu {
+    display: flex;
+    /* color: black; */
+    width: 100%;
+    justify-content: center;
+    background: #ccc;
+}
+
+.menu li:hover {
+    background:#bbb;
+}
+.menu li {
+  cursor: pointer;
+    display:block;
+  }
+  
+  .menu a {
+    display: inline-block;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: #fff;
+  }

@@ -1,0 +1,36 @@
+.message {
+    border-radius: 10px;
+    background-color: #182533;
+    color: #fff;
+    padding: 10px;
+    width: 45%;
+    margin: auto 0 10px 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .currentMessage {
+    margin: 0 0 10px auto;
+    background-color: #2b5278;
+  }
+  
+  .messageProps p{
+    margin: 0;
+  }
+  .messageProps{
+    display:flex;
+    justify-content: space-between;
+  }
+
+  .message h3{
+    margin: 8px 0;
+  }
+  .message div p:last-child {
+    color: #435564;
+    text-align: right;
+  }
+  
+  .currentMessage div p:last-child {
+    color: #45719f;
+    text-align: right;
+  }
